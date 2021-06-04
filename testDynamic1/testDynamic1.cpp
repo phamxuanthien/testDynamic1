@@ -1,4 +1,4 @@
-// testDynamic1.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿// testDynamic1.cpp : This file contains the 'main' function. Program execution begins and ends there.
 
 
 #include <iostream>
@@ -6,7 +6,7 @@
 #include <Windows.h>
 
 typedef int (group)(int);
-typedef std::string(name)(const char*);
+typedef void(name)(char*);
 typedef HINSTANCE HMODULE; 
 
 
@@ -23,9 +23,12 @@ int main()
         MyName = (name*)GetProcAddress(hDll, "MyName");
 
         std::cout << "My group is " << MyGroup(561220) << "\n";
-        std::cout << "My name is " << MyName("Pham Xuan Thien") << "\n";
+        char myname[20];
+        MyName(myname);
+        std::cout << "My name is " << myname << "\n";
         system("pause");
     }
+    FreeLibrary(hDll);
     return 0;
 }
 

@@ -6,4 +6,4 @@
 
 extern "C" __declspec(dllexport) int MyGroup(int group);
 
-extern "C" __declspec(dllexport) std::string MyName(const char* name);
+extern "C" __declspec(dllexport) void MyName(char* name);
